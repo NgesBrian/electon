@@ -126,3 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+#non app dirs to also find static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+LOGIN_REDIRECT_URL = 'authenticateduser:index'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only

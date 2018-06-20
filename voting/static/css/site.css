@@ -1,0 +1,84 @@
+html,
+body {
+    height: 100%;
+}
+
+/* style on small devices like PPHev devices */
+@media screen and (max-width: 992px) {
+    body {
+        //padding-top: 70px;
+    }
+}
+
+/* style on xtra small devices (phone) devices */
+@media screen and (max-width: 768px) {
+    body {
+        //padding-top: 25px;
+    }
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 25px;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+/* programmer styles */
+/* styling the panes of the tabs on the portal */
+.tab-pane{
+    background-color: white;
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/** This is to show the contain of the error page*/
+.errormessage{
+    color: red;
+    text-shadow: 1px 1px 1px #9c27b0;
+    font-size:5.0em;
+    font-family: URW Chancery L, verdana sarif;
+    text-align:center;
+}
+
+/*styling all modals with bg-info in their head section*/
+.modal-content .bg-info{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal-header{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.navItem{
+    color:white;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 2.0em;
+    float: left;
+}
+.navbar-nav > li > a{
+    color: white !important;
+    font-size: 1.2em;
+}
+
+/*.nav-tabs > .active > a, .nav-tabs > li > a{
+    color: #5bc0de !important;
+}*/
+
+.goog-te-banner-frame.skiptranslate {
+	display: none !important;
+}

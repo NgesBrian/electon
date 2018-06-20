@@ -1,0 +1,59 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Panther - Electoral System{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    </head>
+      <body>
+        <div>
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Panther - Electoral System</a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home">Home</a></li>
+                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="about"><span class="glyphicon glyphicon-pencil"></span> About</a></li>\
+                <li><a href="contact"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+         <div class="container-fluid">
+              {% block content %}Empty page!{% endblock content %}
+          </div>
+
+          <div class="footer container-fluid ">
+                          <div class="col-sm-2">
+                              <div class="pull-left" id="google_translate_element"></div>
+                              <!--script type="text/javascript">
+                                  function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'fr,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+                                  }
+                              </script-->
+                              <!--script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script-->
+                          </div>
+                          <div class="col-sm-6 ">
+                              <p class="text-center lead">
+                                  <a class="fg-site" href="#" title="Online voting system">
+                                      <span>&copy; PES 2018</span>
+                                  </a> |
+                                  <a class="fg-site" href="about" title="About us">About</a> |
+                                  <a class="fg-site" href="contact" title="Contact us">Contact</a> ||
+                                  <a class="fg-site" href="signup" title="About us">Signup</a> ||
+                                  <a class="fg-site" href="login" title="Contact us">Login</a> ||
+                              </p>
+                          </div>
+                          <div class="col-sm-4">
+                              <p class="lead pull-right">
+                                  Powered by <span class="fg-site">Tech Panther </span>
+                              </p>
+                          </div>
+          </div>
+      </body>
+       
+</html>
