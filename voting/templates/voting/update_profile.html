@@ -1,0 +1,48 @@
+{% extends 'siteLayout.html' %}
+
+{% block title %}Edit your profile information{% endblock %}
+
+{% block content %}
+    <br />
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+            <form method="post">
+                <div class="panel panel-site" style="border-top: none; border-right: none">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                {% if msgInfo %}
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      {{ msgInfo }}
+                                    </div>
+                                {% endif %}
+                                <h1 class="fg-site"><b>Edit your profile information</b></h1>
+                                {% csrf_token %}
+                                {% for field in form %}
+                                  <p>
+                                    {{ field.label_tag }}<br>
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                      <small style="color: grey">{{ field.help_text|safe }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                      <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                  </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1 clearfix">
+                                <button class="btn btn-site pull-right" type="submit"><b>Save changes</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

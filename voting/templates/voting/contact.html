@@ -1,7 +1,24 @@
+
 {% extends 'voting/main.html' %}
 
-{% block title %}About  Panther Es{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block content %}
-Contact
-{% endblock %}
+
+<h1>Contact us</h1>
+
+{% if msgInfo %}
+	<div class="alert alert-info">
+		{{ msgInfo }}
+	</div>
+{% endif %}
+
+<form method="POST" novalidate>
+	<table>
+	{% csrf_token %}
+	{{ form.as_table }}
+	</table>
+	<p><input type="submit" value="Submit"></p>
+</form>
+
+{% endblock content %}
