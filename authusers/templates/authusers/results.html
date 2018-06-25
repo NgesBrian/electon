@@ -38,7 +38,7 @@
 							<td>
 								{{ election.electorType }}
 							</td>
-							<td><a href="{% url 'authusers:election' election.idElection %}"><span class="glyphicon glyphicon-ok"></span> Select</a></td>
+							<td><a href="{% url 'authusers:result' election.idElection %}"><span class="glyphicon glyphicon-ok"></span> Select</a></td>
 						</tr>
    					{% endfor %}
 				</tbody>

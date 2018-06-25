@@ -1,0 +1,97 @@
+{% extends 'authusers/main.html' %}
+
+{% block title %}About  Panther Es{% endblock %}
+	
+{% block content %}
+	<ul>
+		<h3>Election Details</h3>
+		<table class="table table-stripped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Voters Type</th>
+					<th> Electors Type </th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr>
+						<td>
+							{{ election.name }}
+						</td>
+						<td>
+							{{ election.voterType }}
+						</td>
+						<td>
+							{{ election.electorType }}
+						</td>
+					</tr>
+			</tbody>
+		</table>
+	</ul>
+	<div class="container">
+		<table class="table table-stripped">
+			<thead>
+				<tr>
+					<th>Post</th>
+					<th>Candidates</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%  if posts %}
+					{% for post in posts %}
+					<tr>
+						<td>
+							{{ post.name }}
+						</td>
+						<td>
+
+							{% if candidates %}
+								<table class="table table-stripped">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th> Vote </th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for candidate in candidates %}
+											<tr>
+												{% if post.idPosition == candidate.position_id %}
+													<td>
+														{{ candidate.user }}
+													</td>
+													{% if votes %}
+														{% for vote in votes %}
+															{% if vote.candidate_id == candidate.idCandidate %}
+															<td>
+																You Voted {{ candidate.user }}
+															</td>
+														
+															{% else %}
+																<td>
+																	<a href="{% url 'authusers:vote' candidate.idCandidate %}"><span class="glyphicon glyphicon-ok"></span> Vote</a>
+																</td>
+															{% endif %}		
+														{% endfor %}												
+													{% endif %}
+												{% endif %}
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							{% else %}
+								There are no Candidates yet for this Elections
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				{% else %}
+					<tr>
+						There are no positions yet for the election
+					</tr>
+				
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+{% endblock content %}
