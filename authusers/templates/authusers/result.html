@@ -60,15 +60,11 @@
 													<td>
 														{{ candidate.user }}
 													</td>
-													{% if allvotes %}
-														{% for vote in votes %}
-															{% if vote.candidate_id == candidate.idCandidate %}
-																{% count++ %}
-															{% endif %}
-														{% endfor %}												
-													{% endif %}
 													<td>
-														{% count++ %}
+														{% load showVotes %}
+															{% showVotes %}
+																{% include 'authusers/showVotes.html'%}
+															{% showVotes%}
 													</td>
 												{% endif %}
 											</tr>

@@ -11,8 +11,10 @@ from django.contrib.auth.models import User
 from .models import Elections
 
 from .models import Candidate
+from .models import Position
 
 #admin.site.register(User)
 #admin.site.register(Login)
 admin.site.register(Elections)
 admin.site.register(Candidate)
+admin.site.register(Position)

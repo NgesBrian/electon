@@ -49,30 +49,36 @@
 								<table class="table table-stripped">
 									<thead>
 										<tr>
+
 											<th>Name</th>
 											<th> Vote </th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										{% for candidate in candidates %}
+
 											<tr>
 												{% if post.idPosition == candidate.position_id %}
 													<td>
 														{{ candidate.user }}
 													</td>
-													{% if votes %}
+													<td>
+														<a href="{% url 'authusers:vote' candidate.idCandidate %}"><span class="glyphicon glyphicon-ok"></span> Vote</a>
+													</td>
+													<td>
+														{% if votes %}
 														{% for vote in votes %}
 															{% if vote.candidate_id == candidate.idCandidate %}
-															<td>
-																You Voted {{ candidate.user }}
-															</td>
-														
-															{% else %}
+															{% if user.id == vote.user_id%}
 																<td>
-																	<a href="{% url 'authusers:vote' candidate.idCandidate %}"><span class="glyphicon glyphicon-ok"></span> Vote</a>
+																	You Voted {{ candidate.user }}
 																</td>
-															{% endif %}		
-														{% endfor %}												
+															{% endif %}
+															{% endif %}	
+														{% endfor %}
+													</td>
+														
 													{% endif %}
 												{% endif %}
 											</tr>

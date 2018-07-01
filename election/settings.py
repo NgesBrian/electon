@@ -65,6 +65,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+        'libraries':{
+            'showVotes':'authusers.templatetags.showVotes',
+        }
         },
     },
 ]
@@ -81,7 +84,7 @@ DATABASES = {
         'OPTIONS': {
             'read_default_file': 'my.cnf',
             'init_command': 'SET default_storage_engine=INNODB',
-            'database': 'Election1',
+            'database': 'Election2',
             'user': 'root',
             'password': '',
             'host': '127.0.0.1', 
