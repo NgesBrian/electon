@@ -82,3 +82,7 @@ body {
 .goog-te-banner-frame.skiptranslate {
 	display: none !important;
 }
+.image {
+   background-image: url("https://arynews.tv/en/wp-content/uploads/2018/04/vote1.jpg");
+   background-color: #cccccc;
+}
