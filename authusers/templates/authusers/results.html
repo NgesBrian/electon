@@ -9,17 +9,17 @@
 			   <h3>
 				    <p>Welcome, {{ user.get_username }}. to Panther ES.</p>
 					{% else %}
-					    <p>Welcome, new user. Please log in.</p>
+					    <p>Welcome, to Panther. Please log in to vote.</p>
 					{% endif %}
 				</h3>
 		</div>
 	</div>
-	<ul>
+	<ul class="text-secondary">
 		{% if elections %}
 			Here are the Different Elections Avalible
 			<table class="table table-stripped">
 				<thead>
-					<tr>
+					<tr class="text-info">
 						<th>Name</th>
 						<th>Voters Type</th>
 						<th> Electors Type </th>
@@ -38,7 +38,7 @@
 							<td>
 								{{ election.electorType }}
 							</td>
-							<td><a href="{% url 'authusers:result' election.idElection %}"><span class="glyphicon glyphicon-ok"></span> Select</a></td>
+							<td class="text-danger"><a class="text-danger" href="{% url 'authusers:result' election.idElection %}"><span class="glyphicon glyphicon-ok"></span> Select</a></td>
 						</tr>
    					{% endfor %}
 				</tbody>
