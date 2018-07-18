@@ -5,7 +5,7 @@
 {% block content %}
 	<ul>
 		<h3>Election Details</h3>
-		<table class="table table-stripped">
+		<table class="table table-stripped text-secondary">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -29,7 +29,7 @@
 		</table>
 	</ul>
 	<div class="container">
-		<table class="table table-stripped">
+		<table class="table table-stripped text-secondary">
 			<thead>
 				<tr>
 					<th>Post</th>
@@ -47,43 +47,37 @@
 
 							{% if candidates %}
 								<table class="table table-stripped">
-									<thead>
-										<tr>
-
-											<th>Name</th>
-											<th> Vote </th>
-											<th></th>
-										</tr>
-									</thead>
-									<tbody>
+										<div class="row">
 										{% for candidate in candidates %}
 
-											<tr>
 												{% if post.idPosition == candidate.position_id %}
-													<td>
-														{{ candidate.user }}
-													</td>
-													<td>
-														<a href="{% url 'authusers:vote' candidate.idCandidate %}"><span class="glyphicon glyphicon-ok"></span> Vote</a>
-													</td>
-													<td>
-														{% if votes %}
-														{% for vote in votes %}
-															{% if vote.candidate_id == candidate.idCandidate %}
-															{% if user.id == vote.user_id%}
-																<td>
-																	You Voted {{ candidate.user }}
-																</td>
-															{% endif %}
-															{% endif %}	
-														{% endfor %}
-													</td>
-														
-													{% endif %}
+													<div class="col-md-3 ">
+														<div class="card">
+															<div class="card-header">
+																<h4 class="card-title">{{ candidate.user }}</h4>
+  																<a href="{% url 'authusers:vote' candidate.idCandidate %}" class="card-link text-danger"><span class=" glyphicon glyphicon-heart" aria-hidden="true">Vote 💚</span></a>
+															</div>
+  															<div class="card-body">
+  																<img src="https://www.w3schools.com/howto/img_avatar.png" style="width: 80%" class="card-link"></img>
+  															</div>
+  															{% if votes %}
+  															<div class="card-footer">
+  																
+																	{% for vote in votes %}
+																		{% if vote.candidate_id == candidate.idCandidate %}
+																		{% if user.id == vote.user_id%}
+																				<div class="text-info">You Voted {{ candidate.user }}</div>
+																			
+																		{% endif %}
+																		{% endif %}	
+																	{% endfor %}
+  															</div>
+  															{% endif %}
+  														</div>
+													</div>
 												{% endif %}
-											</tr>
 										{% endfor %}
-									</tbody>
+									</div>
 								</table>
 							{% else %}
 								There are no Candidates yet for this Elections

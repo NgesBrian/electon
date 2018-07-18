@@ -3,9 +3,22 @@
 <html lang="en">
   <head>
         <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Panther - Electoral System{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/site.css' %}">
+        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+         <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+    </head> rel="stylesheet" href="{% static 'css/site.css' %}">
     </head>
       <body>
 
@@ -18,13 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a href="{% url 'authusers:home' %}"><span class="glyphicon glyphicon-home">Home</span></a>
+                  <a class="nav-link" href="{% url 'authusers:home' %}"><span>Home</span></a>
                 </li>
                 <li class="nav-item">
-                  <a href="{% url 'authusers:elections' %}"><span class="glyphicon glyphicon-th"></span> Elections</a>
+                  <a class="nav-link" href="{% url 'authusers:elections' %}"><span></span> Elections</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{% url 'authusers:results' %}"><span class=" glyphicon glyphicon-inbox"></span> Results</a>
+                  <a class="nav-link" href="{% url 'authusers:results' %}"><span></span> Results</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
@@ -34,38 +47,11 @@
           </div>
         </nav>
 
-         <div class="container-fluid">
+         <div>
               {% block content %}Empty page!{% endblock content %}
           </div>
 
-          <div class="footer container-fluid ">
-                          <div class="col-sm-2">
-                              <div class="pull-left" id="google_translate_element"></div>
-                              <!--script type="text/javascript">
-                                  function googleTranslateElementInit() {
-                                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'fr,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-                                  }
-                              </script-->
-                              <!--script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script-->
-                          </div>
-                          <div class="col-sm-6 ">
-                              <p class="text-center lead">
-                                  <a class="fg-site" href="#" title="Online voting system">
-                                      <span>&copy; PES 2018</span>
-                                  </a> |
-                                  <a class="fg-site" href="{% url 'authusers:home' %}" title="About us">Home</a> |
-                      
-                                  <a class="fg-site" href="{% url 'authusers:elections' %}" title="About us">Elections</a> ||
-                                  <a class="fg-site" href="{% url 'authusers:results' %}" title="Contact us">Results</a> ||
-                                   <a class="fg-site" href="{% url 'voting:contact' %}" title="Contact us">Contact</a> 
-                              </p>
-                          </div>
-                          <div class="col-sm-4">
-                              <p class="lead pull-right">
-                                  Powered by <span class="fg-site">Tech Panther </span>
-                              </p>
-                          </div>
-          </div>
+          
       </body>
        
 </html>

@@ -12,13 +12,14 @@
 		{{ msgInfo }}
 	</div>
 {% endif %}
-
-<form method="POST" novalidate>
+<br><br>
+<form method="POST" novalidate class="form-group form-control col-md-6" style="margin-left: 23%">
+	Contact Us<hr>
 	<table>
 	{% csrf_token %}
 	{{ form.as_table }}
 	</table>
-	<p><input type="submit" value="Submit"></p>
+	<p><input type="submit" class="btn btn-secondary" value="Submit"></p>
 </form>
 
 {% endblock content %}
