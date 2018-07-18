@@ -18,39 +18,7 @@
 		    box-shadow: 4 16px 32px 0 rgba(0,0,0,0.2);
 		}
 	</style>
-	<div>
-	    <div id="demo" class="carousel slide" data-ride="carousel">
-
-	  <!-- Indicators -->
-		  <ul class="carousel-indicators">
-		    <li data-target="#demo" data-slide-to="0" class="active"></li>
-		    <li data-target="#demo" data-slide-to="1"></li>
-		    <li data-target="#demo" data-slide-to="2"></li>
-		  </ul>
-
-		  <!-- The slideshow -->
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <img src="https://arynews.tv/en/wp-content/uploads/2018/04/vote1.jpg" alt="Los Angeles">
-		    </div>
-		    <div class="carousel-item">
-		      <img src="https://s-i.huffpost.com/gen/1443494/images/o-WHITE-PEOPLE-BUSINESS-SUITS-facebook.jpg" alt="Chicago">
-		    </div>
-		    <div class="carousel-item">
-		      <img src="http://www.urdunews.com/sites/default/files/2018/04/19/292996-1939184536.jpg" alt="New York">
-		    </div>
-		  </div>
-
-		  <!-- Left and right controls -->
-		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-		    <span class="carousel-control-prev-icon"></span>
-		  </a>
-		  <a class="carousel-control-next" href="#demo" data-slide="next">
-		    <span class="carousel-control-next-icon"></span>
-		  </a>
-
-		</div>
-	</div><br>
+	<br><br>
 	<h3 class="text-center text-secondary">
 		<p>{{ user.get_username }}, we need your vote 😃</p>
 {% else %}
@@ -76,6 +44,7 @@
 	   	{% else %}
 	   		No Elections Yet
 		{% endif %}    
-	</div>
+	</div><br><br>
+	<div class="row form-group" style="margin-left: 33%;"><span>Email: </span><input class=" off-set-md-2 form-control col-md-5" type="email" name="email" placeholder="Please subcribe to our news"><input type="Submit" name="subscribe" class="btn btn-info"></div>
 </div><br><br>
 {% endblock %}
