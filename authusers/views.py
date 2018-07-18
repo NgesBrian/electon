@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from voting.models import Elections, Position, Candidate,Voting
+from django.core.files.storage import FileSystemStorage
+import os.path
 
 def home(request):
 	context_object_name = 'Elections'
@@ -67,3 +69,32 @@ def result(request, id):
 	posts = Position.objects.filter(election_id = id)
 	return render(request, 'authusers/result.html', {'allvotes':allvotes, 'posts':posts, 'candidates':candidates, 'election':election})
 
+#To Upload the users Profile Picture
+def upload(request, id):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage('static/images')
+        ouruser = request.user
+        iden = str(ouruser.id)
+        fileexist = FileSystemStorage('static/images/'+ iden)
+        if os.path.exists('static/images/'+ iden):
+        	 os.remove('static/images/'+ iden)
+        filename = fs.save(str(ouruser.id), myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'authusers/simple_upload.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'authusers/simple_upload.html')
+
+#to upload the pictures and save some data
+def formupload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = DocumentForm()
+    return render(request, 'core/model_form_upload.html', {
+        'form': form
+    })

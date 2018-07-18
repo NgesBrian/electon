@@ -41,6 +41,7 @@ class Candidate(models.Model):
     idCandidate = models.AutoField(primary_key=True)
     position = models.ForeignKey(Position, on_delete=models.CASCADE, default=1)
     election = models.ForeignKey(Elections, on_delete=models.CASCADE, default=1)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     user = models.CharField(max_length= 100, default='Nges')
 
 class Voting(models.Model):
@@ -57,7 +58,6 @@ class Contact(models.Model):
     email = models.CharField(max_length= 80)
 
 #To define the various post availble with the election
-
 
 
 class Profile(models.Model):
@@ -80,3 +80,9 @@ def set_email_as_unique():
 
 #this is called here so that attribute can be set at the application load time
 set_email_as_unique()
+
+#To upload documents
+class Document(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    document = models.FileField(upload_to='documents/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

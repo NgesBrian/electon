@@ -1,6 +1,7 @@
 {% extends 'authusers/main.html' %}
 
 {% block title %}About  Panther Es{% endblock %}
+{% load static %}
 
 {% block content %}
 	
@@ -51,12 +52,23 @@
 
 		</div>
 	</div><br>
-	<h3 class="text-center text-secondary">
-		<p>{{ user.get_username }}, we need your vote 😃</p>
-{% else %}
-	<p>Hello! Welcome, Please log in.</p>
-{% endif %}
-	</h3><br>
+	<div class="row">
+		<div class="card Card col-md-4">
+			<img class="card-img-top" src="{% static 'images/'%}{{ user.id }}"  alt="Profile pic" style="width:100%">
+			<a href="{% url 'authusers:upload' user.id %}" class="card-link btn btn-secondary">Change Your DP</a>
+		</div>
+		<div class="col-md-8">
+			<h3 class="text-center text-secondary">
+			<p>{{ user.get_username }}, we need your vote 😃</p>
+				{% else %}
+					<p>Hello! Welcome, Please log in.</p>
+				{% endif %}
+		
+		</h3><br>
+		</div>
+	</div>
+	
+
 <div class="container">
 	<div class="row">
 		{% if elections %}		

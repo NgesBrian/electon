@@ -1,7 +1,8 @@
 {% extends 'authusers/main.html' %}
 
 {% block title %}About  Panther Es{% endblock %}
-	
+
+{% load static %}	
 {% block content %}
 	<ul>
 		<h3>Election Details</h3>
@@ -58,7 +59,7 @@
   																<a href="{% url 'authusers:vote' candidate.idCandidate %}" class="card-link text-danger"><span class=" glyphicon glyphicon-heart" aria-hidden="true">Vote 💚</span></a>
 															</div>
   															<div class="card-body">
-  																<img src="https://www.w3schools.com/howto/img_avatar.png" style="width: 80%" class="card-link"></img>
+  																<img class="card-img-top" src="{% static 'images/'%}{{ candidate.userid_id }}"  alt="Profile pic" style="width:100%">
   															</div>
   															{% if votes %}
   															<div class="card-footer">

@@ -10,5 +10,6 @@ urlpatterns = [
     path('election/<id>', views.election, name='election'),
     path('vote/<id>', views.vote, name='vote'),
     path('results', views.results, name='results'),
-     path('result<id>', views.result, name='result'),
+    path('result<id>', views.result, name='result'),
+    path('upload/<id>', views.upload, name = 'upload'),
 ]

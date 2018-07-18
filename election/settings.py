@@ -86,7 +86,7 @@ DATABASES = {
             'init_command': 'SET default_storage_engine=INNODB',
             'database': 'Election2',
             'user': 'root',
-            'password': 'root',
+            'password': '',
             'host': '127.0.0.1', 
             #'port': '3306',
         },
@@ -130,11 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+UPLOADS = '/uploads/'
 #non app dirs to also find static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "uploads")
 ]
 
 LOGIN_REDIRECT_URL = 'authusers:home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
